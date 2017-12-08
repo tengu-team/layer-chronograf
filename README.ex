@@ -1,65 +1,41 @@
 # Overview
 
-Describe the intended usage of this charm and anything unique about how this
-charm relates to others here.
+Chronograf is the Complete Interface for the InfluxData Platform.
 
-This README will be displayed in the Charm Store, it should be either Markdown
-or RST. Ideal READMEs include instructions on how to use the charm, expected
-usage, and charm features that your audience might be interested in. For an
-example of a well written README check out Hadoop:
-http://jujucharms.com/charms/precise/hadoop
-
-Use this as a Markdown reference if you need help with the formatting of this
-README: http://askubuntu.com/editing-help
-
-This charm provides [service][]. Add a description here of what the service
-itself actually does.
-
-Also remember to check the [icon guidelines][] so that your charm looks good
-in the Juju GUI.
+Chronograf is the user interface component of InfluxData’s TICK stack. It makes the monitoring and alerting for your infrastructure easy to setup and maintain. It is simple to use and includes templates and libraries to allow you to rapidly build dashboards with real-time visualizations of your data.
 
 # Usage
 
-Step by step instructions on using the charm:
-
-juju deploy servicename
-
-and so on. If you're providing a web service or something that the end user
-needs to go to, tell them here, especially if you're deploying a service that
-might listen to a non-default port.
-
-You can then browse to http://ip-address to configure the service.
-
-## Scale out Usage
-
-If the charm has any recommendations for running at scale, outline them in
-examples here. For example if you have a memcached relation that improves
-performance, mention it here.
-
-## Known Limitations and Issues
-
-This not only helps users but gives people a place to start if they want to help
-you add features to your charm.
-
-# Configuration
-
-The configuration options will be listed on the charm store, however If you're
-making assumptions or opinionated decisions in the charm (like setting a default
-administrator password), you should detail that here so the user knows how to
-change it immediately, etc.
+Deploy the Chronograf charm:
+```sh
+juju deploy chronograf
+```
+## InfluxDB
+A relation with InfluxDB is required for Chronograf to work:
+```sh
+juju deploy influxdb
+juju add-relation chronograf influxdb
+```
+## Kapacitor
+A relation with Kapacitor is not required but is possible:
+```sh
+juju deploy kapacitor
+juju add-relation chronograf kapacitor
+```
+## UI
+Expose Chronograf so you can browse to the web application:
+```sh
+juju expose chronograf
+```
+Browse to **http://<insert public ip>:8888** to start using Chronograf.
 
 # Contact Information
+- [Chronograf]
+- [Chronograf Documentation]
+- [Chronograf Charm Github]
+## Authors
+- Michiel Ghyselinck <michiel.ghyselinck@tengu.io>
 
-Though this will be listed in the charm store itself don't assume a user will
-know that, so include that information here:
-
-## Upstream Project Name
-
-  - Upstream website
-  - Upstream bug tracker
-  - Upstream mailing list or contact information
-  - Feel free to add things if it's useful for users
-
-
-[service]: http://example.com
-[icon guidelines]: https://jujucharms.com/docs/stable/authors-charm-icon
+[chronograf documentation]: https://docs.influxdata.com/chronograf/v1.3/
+[chronograf charm github]: https://github.com/tengu-team/layer-chronograf
+[chronograf]: https://www.influxdata.com/time-series-platform/chronograf/
