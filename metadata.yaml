@@ -1,19 +1,17 @@
 name: chronograf
-summary: <Fill in summary here>
-maintainer: dev <dev@michiel-Precision-3510>
+summary: Chronograf is InfluxData’s open source web application.
+maintainer: Michiel Ghyselinck <michiel.ghyselinck@tengu.io>
 description: |
-  <Multi-line description here>
+  Use Chronograf with the other components of the TICK stack to visualize
+  your monitoring data and easily create alerting and automation rules.
 tags:
-  # Replace "misc" with one or more whitelisted tags from this list:
-  # https://jujucharms.com/docs/stable/authors-charm-metadata
-  - misc
+  - monitoring
 subordinate: false
 provides:
   http:
     interface: http
 requires:
-  kapacitor:
-    interface: kapacitor
-requires:
   influxdb:
     interface: influxdb-api
+  kapacitor:
+    interface: kapacitor
