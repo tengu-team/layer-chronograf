@@ -27,7 +27,7 @@ Expose Chronograf so you can browse to the web application:
 ```sh
 juju expose chronograf
 ```
-Browse to **http://<insert public ip>:8888** to start using Chronograf.
+Browse to **http://PUBLIC_IP:8888** to start using Chronograf.
 
 # Contact Information
 - [Chronograf]

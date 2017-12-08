@@ -27,6 +27,7 @@ def install_layer_chronograf():
 @when('layer-chronograf.installed')
 @when_not('layer-chronograf.influxdb-configured')
 def set_blocked():
+    """A relation with InfluxDB is required."""
     status_set('blocked', 'Please create a relation with InfluxDB.')
 
 
