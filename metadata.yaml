@@ -15,3 +15,4 @@ requires:
     interface: influxdb-api
   kapacitor:
     interface: kapacitor
+series: ['xenial']
