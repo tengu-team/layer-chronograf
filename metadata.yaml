@@ -7,9 +7,6 @@ description: |
 tags:
   - monitoring
 subordinate: false
-provides:
-  http:
-    interface: http
 requires:
   influxdb:
     interface: influxdb-api

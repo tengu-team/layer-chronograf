@@ -1,2 +1,2 @@
-includes: ['layer:basic', 'interface:http', 'interface:influxdb-api', 'interface:kapacitor']
+includes: ['layer:basic', 'interface:influxdb-api', 'interface:kapacitor']
 repo: https://github.com/tengu-team/layer-chronograf.git
