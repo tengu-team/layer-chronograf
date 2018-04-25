@@ -110,6 +110,12 @@ def unconfigure_kapacitor():
     remove_state('layer-chronograf.kapacitor-configured')
 
 
+@when('layer-chronograf.started', 'http.available')
+@when_not('http.configured')
+def configure_http(http):
+    http.configure(8888)
+
+
 def get_options():
     """Returns string with options to run Chronograf with. (CLI arguments)"""
     options = ""
