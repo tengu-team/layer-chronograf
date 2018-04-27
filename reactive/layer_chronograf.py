@@ -102,15 +102,18 @@ def unconfigure_influxdb():
 @when('layer-chronograf.kapacitor-configured')
 @when_not('kapacitor.available')
 def unconfigure_kapacitor():
-    """When relation with Kapacitor is removed Chronograf has to be stopped."""
     # No relation so set Kapacitor values to None.
     DB.set('kapacitor_hostname', None)
     DB.set('kapacitor_port', None)
     DB.set('kapacitor_user', None)
     DB.set('kapacitor_password', None)
-    service_stop('chronograf')
-    close_port(8888)
     remove_state('layer-chronograf.kapacitor-configured')
+
+
+@when('layer-chronograf.started', 'http.available')
+@when_not('http.configured')
+def configure_http(http):
+    http.configure(8888)
 
 
 def get_options():

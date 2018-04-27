@@ -13,7 +13,7 @@ juju deploy chronograf
 ## InfluxDB
 A relation with InfluxDB is required for Chronograf to work:
 ```sh
-juju deploy influxdb
+juju deploy cs:~chris.macnaughton/influxdb-7
 juju add-relation chronograf influxdb
 ```
 ## Kapacitor
